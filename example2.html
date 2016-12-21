@@ -1,0 +1,28 @@
+<html>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<div id="app-7">
+	  <ol>
+	    <!-- Now we provide each todo-item with the todo object    -->
+	    <!-- it's representing, so that its content can be dynamic -->
+	    <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+	  </ol>
+	</div>
+
+	<script type="text/javascript">
+		Vue.component('todo-item', {
+			props: ['todo'],
+  			template: '<li>{{ todo.grocery }}</li>'
+		});
+
+		var app7 = new Vue({
+		  el: '#app-7',
+		  data: {
+		    groceryList: [
+		      { grocery: 'Vegetables' },
+		      { grocery: 'Cheese' },
+		      { grocery: 'Whatever else humans are supposed to eat' }
+		    ]
+		  }
+		});
+	</script>
+</html>
