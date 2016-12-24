@@ -25,23 +25,7 @@
       data () { // 要綁定的資料
         return {
           newUser: {},
-          users: [
-            {
-              name: 'Da J',
-              email: 'daj@gmail.com',
-              delete: false
-            },
-            {
-              name: 'Tracy Chen',
-              email: 'tracychen@gmail.com',
-              delete: false
-            },
-            {
-              name: 'Jerry Yan',
-              email: 'jerryyan@gmail.com',
-              delete: false
-            }
-          ]
+          users: []
         }
       },
       methods: {
@@ -56,6 +40,13 @@
         deleteUser: function (user) {
           this.users.splice(this.users.indexOf(user), 1)
         }
+      },
+      created: function () { // 建制完以後就會執行以下
+        this.$http.get('https://jsonplaceholder.typicode.com/users')
+        .then(function (response) {
+          console.log(response.data)
+          this.users = response.data
+        })
       }
     }
 </script>
