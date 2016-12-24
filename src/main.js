@@ -1,46 +1,28 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+// /* eslint-disable */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-// import App from './App'
+import App from './App'
 import Users from './components/Users'
 import Test from './components/Test'
-
 Vue.use(VueRouter)
 Vue.use(VueResource)
-// console.log(__dirname)
-const router = new VueRouter({
-  // base: __dirname,
+var router = new VueRouter({
   mode: 'history',
+  base: __dirname,
   routes: [
-    {
-      path: '/',
-      components: Users
-      // meta: {
-      //   requiresAuth: true
-      // }
-    },
-    {path: '/test', components: Test}
+    { path: '/users', component: Users },
+    { path: '/test', component: Test }
   ]
 })
 
 /* eslint-disable no-new */
-// new Vue({
-//   el: '#app',
-//   template: '</App>',
-//   components: { App },
-// })
-
-/* eslint-disable no-new */
 new Vue({
-  router,
-  template: `
-  <div id="app">
-    <router-link to="/">Users</router-link>
-    <router-link to="/test">Test</router-link>
-    <router-view></router-view>
-  </div>
-  `
-}).$mount('#app')
-
+  el: '#app',
+  router: router,
+  template: '<App/>',
+  components: { App }
+  // template: {'<router-view></router-view>'}
+})
