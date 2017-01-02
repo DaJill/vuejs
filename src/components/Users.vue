@@ -37,6 +37,7 @@
           })
           e.preventDefault()
         },
+        
         deleteUser: function (user) {
           this.users.splice(this.users.indexOf(user), 1)
         }

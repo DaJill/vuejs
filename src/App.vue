@@ -1,14 +1,16 @@
 <template>
   <div id="app">
-    <router-link to="/users">Users</router-link>
-    <router-link to="/test">test</router-link>
-    <router-view></router-view>
+    <dataOperation></dataOperation>
   </div>
 </template>
 
 <script>
+import dataOperation from './components/DataOperation'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    dataOperation
+  }
 }
 
 </script>

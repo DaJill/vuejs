@@ -2,27 +2,24 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 // /* eslint-disable */
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+// import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import App from './App'
-import Users from './components/Users'
-import Test from './components/Test'
-Vue.use(VueRouter)
+// import DataOperation from './components/DataOperation'
+// Vue.use(VueRouter)
 Vue.use(VueResource)
-var router = new VueRouter({
-  mode: 'history',
-  base: __dirname,
-  routes: [
-    { path: '/users', component: Users },
-    { path: '/test', component: Test }
-  ]
-})
+// var router = new VueRouter({
+//   mode: 'history',
+//   base: __dirname,
+//   routes: [
+//     { path: '/DataOperation', component: DataOperation }
+//   ]
+// })
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router: router,
+  // router: router,
   template: '<App/>',
   components: { App }
-  // template: {'<router-view></router-view>'}
 })
