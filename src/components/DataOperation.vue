@@ -1,5 +1,6 @@
 <template>
   <div class="dataOperation">
+    <updateData v-if="showUpdateModal" @closeShowUpdateModal="showUpdateModal = false"></updateData>
     <form id="form" v-on:submit.prevent="addUser">
       <input type="text" v-model="aNewUser.Nickname" placeholder="請輸入暱稱">
       <input type="text" v-model="aNewUser.UserName" placeholder="請輸入帳號">
@@ -17,14 +18,23 @@
         <th>{{aRowUser.Nickname}}</th>
         <th>{{aRowUser.UserName}}</th>
         <th>{{aRowUser.Password}}</th>
-        <th><button v-on:click="delUser(aRowUser)">刪除</button> <button>修改</button></th>
+        <th>
+          <button v-on:click="delUser(aRowUser)">刪除</button> 
+          <button @click="showUpdateModal = true">修改</button>
+        </th>
       </tr>
     </table>
+  </div>
 </template>
 
 <script>
+    import UpdateData from './UpdateData'
+
     export default {
       name: 'dataOperation',
+      components: {
+        UpdateData
+      },
       props: { // 可以接收父元件的資料屬性
       },
       data () { // 要綁定的資料
@@ -35,7 +45,8 @@
             UserName: '',
             Password: ''
           },
-          aUserList: []
+          aUserList: [],
+          showUpdateModal: false
         }
       },
       methods: {

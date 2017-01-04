@@ -1,15 +1,18 @@
 <template>
   <div id="app">
     <dataOperation></dataOperation>
+    <!-- <updateData></updateData> -->
   </div>
 </template>
 
 <script>
 import dataOperation from './components/DataOperation'
+import updateData from './components/UpdateData'
 export default {
   name: 'app',
   components: {
-    dataOperation
+    dataOperation,
+    updateData
   }
 }
 
